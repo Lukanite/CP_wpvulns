@@ -13,7 +13,7 @@ Time spent: **10** hours spent in total
     - Tested in version: 4.2
     - Fixed in version: 4.2.1
   - [ ] GIF Walkthrough: (1210KB, ~10s)
-    - <img src="//Lukanite/CP_wpvulns/raw/master/1.gif">
+    - <img src="https://github.com/Lukanite/CP_wpvulns/raw/master/1.gif">
   - [ ] Steps to recreate: 
     - Create an "<a>" tag longer than 64k in a comment, which upon truncation renders as malformed HTML. Browsers try to fix this which leads to interpretation of the onmouseover exploit.
     - Sample exploit generator:
@@ -37,7 +37,7 @@ Time spent: **10** hours spent in total
     - Tested in version: 4.2
     - Fixed in version: 4.2.2
   - [ ] GIF Walkthrough: (164KB, ~6s)
-    - <img src="//Lukanite/CP_wpvulns/raw/master/2.gif">
+    - <img src="https://github.com/Lukanite/CP_wpvulns/raw/master/2.gif">
   - [ ] Steps to recreate: 
     - Create a malicious link using the "filter" feature of the genericons example page with XSS embedded in it for a post.
     - Example: 
@@ -57,7 +57,7 @@ Time spent: **10** hours spent in total
     - Tested in version: 4.2
     - Fixed in version: 4.2.5
   - [ ] GIF Walkthrough: (223KB, ~8s)
-    - <img src="//Lukanite/CP_wpvulns/raw/master/3.gif">
+    - <img src="https://github.com/Lukanite/CP_wpvulns/raw/master/3.gif">
   - [ ] Steps to recreate: 
     - Get funky with quotes and put HTML inside of shortcodes. Put this in a post.
     - Example:
@@ -75,7 +75,7 @@ Time spent: **10** hours spent in total
     - Tested in version: 4.2
     - Fixed in version: 4.2.10
   - [ ] GIF Walkthrough: (714KB, ~30s)
-    - <img src="//Lukanite/CP_wpvulns/raw/master/4.gif">
+    - <img src="https://github.com/Lukanite/CP_wpvulns/raw/master/4.gif">
   - [ ] Steps to recreate: 
     - Send an image with a malicious filename to the admin (victim)
       - Example: `zorua<img src=rekt onerror=alert(1)>.jpg`
