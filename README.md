@@ -84,7 +84,7 @@ Time spent: **10** hours spent in total
       - Example: `zorua<img src=rekt onerror=alert(1)>.jpg`
     - Hope the admin is on a Mac or using Linux so that the filesystem supports the original filename
     - Get the admin to create a post including the file (as an attachment page)
-    - Distribute the URL to the attachment page, which will execute your XSS
+    - Distribute the URL to the attachment page, which upon visit will execute your XSS
   - [ ] Affected source code:
     - https://github.com/WordPress/WordPress/commit/c9e60dab176635d4bfaaf431c0ea891e4726d6e0
   - [ ] Reference:
@@ -99,7 +99,7 @@ All assets are listed in the descriptions for each vulnerability involved
 - [WordPress Source Browser](https://core.trac.wordpress.org/browser/)
 - [WordPress GitHub](https://github.com/WordPress/WordPress)
 
-GIFs created with [LiceCap](http://www.cockos.com/licecap/).
+GIFs created with [FFmpeg](http://ffmpeg.org/) and [Windows 10 Game DVR](https://support.xbox.com/en-US/xbox-on-windows/social/record-game-clips-game-dvr-windows-10).
 
 ## Notes
 
@@ -107,6 +107,8 @@ Virtualbox has ruined my networking setup on my workstation multiple times, so..
 Created a AWS EC2 instance instead running the latest Kali (as of March 15) and installed WordPress over that (LAMP + .tar.gz). This is why all of the URL's are for localhost.
 Used SSH [Local Port Forwarding](https://help.ubuntu.com/community/SSH/OpenSSH/PortForwarding) for most of the exploits, but since Exploit 4 (Image Filename XSS) doesn't work on Windows (my workstation OS), used [X over SSH](http://people.csail.mit.edu/wentzlaf/faq/ssh_X.html) to remotely run firefox from the EC2 instance.
 
+Also, Licecap is blocked for download by Windows Defender, and this *is* a security-related class, so...
+I'll take my chances with Windows 10 Game DVR + FFmpeg (plus, it's truly the better toolset anyways).
 
 ## License
 
