@@ -12,7 +12,7 @@ Time spent: **X** hours spent in total
     - Vulnerability types: XSS
     - Tested in version: 4.2
     - Fixed in version: 4.2.1
-  - [ ] GIF Walkthrough: 
+  - [ ] GIF Walkthrough: (1210KB, ~10s)
   - [ ] Steps to recreate: 
     - Create an "<a>" tag longer than 64k in a comment, which upon truncation renders as malformed HTML. Browsers try to fix this which leads to interpretation of the onmouseover exploit.
     - Sample exploit generator:
@@ -35,7 +35,7 @@ Time spent: **X** hours spent in total
     - Vulnerability types: XSS
     - Tested in version: 4.2
     - Fixed in version: 4.2.2
-  - [ ] GIF Walkthrough: 
+  - [ ] GIF Walkthrough: (164KB, ~6s)
   - [ ] Steps to recreate: 
     - Create a malicious link using the "filter" feature of the genericons example page with XSS embedded in it for a post.
     - Example: 
@@ -54,7 +54,7 @@ Time spent: **X** hours spent in total
     - Vulnerability types: XSS
     - Tested in version: 4.2
     - Fixed in version: 4.2.5
-  - [ ] GIF Walkthrough: 
+  - [ ] GIF Walkthrough: (223KB, ~8s)
   - [ ] Steps to recreate: 
     - Get funky with quotes and put HTML inside of shortcodes. Put this in a post.
     - Example:
@@ -71,7 +71,7 @@ Time spent: **X** hours spent in total
     - Vulnerability types: XSS
     - Tested in version: 4.2
     - Fixed in version: 4.2.10
-  - [ ] GIF Walkthrough: (It's about a minute long, so strap in)
+  - [ ] GIF Walkthrough: (714KB, ~30s)
   - [ ] Steps to recreate: 
     - Send an image with a malicious filename to the admin (victim)
       - Example: `zorua<img src=rekt onerror=alert(1)>.jpg`
@@ -96,7 +96,7 @@ GIFs created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-Virtualbox has ruined my networking setup on my workstation multiple times, so... I'm not a fan.
+Virtualbox has ruined my networking setup on my workstation multiple times, so... I'm not a fan. It's a long story.
 Created a AWS EC2 instance instead running the latest Kali (as of March 15) and installed WordPress over that (LAMP + .tar.gz). This is why all of the URL's are for localhost.
 Used SSH [Local Port Forwarding](https://help.ubuntu.com/community/SSH/OpenSSH/PortForwarding) for most of the exploits, but since Exploit 4 (Image Filename XSS) doesn't work on Windows (my workstation OS), used [X over SSH](http://people.csail.mit.edu/wentzlaf/faq/ssh_X.html) to remotely run firefox from the EC2 instance.
 
