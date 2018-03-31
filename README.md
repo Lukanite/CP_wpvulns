@@ -41,7 +41,10 @@ Time spent: **X** hours spent in total
     http://wp-site/wp-content/themes/twentyfifteen/genericons/example.html#1<img/ src=1 onerror= alert(1)>
     ```
   - [ ] Affected source code:
-    - [Link 1](https://core.trac.wordpress.org/browser/tags/version/src/source_file.php)
+    - Genericons example file (example.html) - Removed in WP 4.2.2
+  - [ ] Reference:
+    - https://wpvulndb.com/vulnerabilities/7979
+
 1. (Required) Vulnerability Name or ID
   - [ ] Summary: 
     - Vulnerability types:
