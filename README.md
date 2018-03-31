@@ -103,11 +103,12 @@ GIFs created with [FFmpeg](http://ffmpeg.org/) and [Windows 10 Game DVR](https:/
 
 ## Notes
 
-Virtualbox has ruined my networking setup on my workstation multiple times, so... I'm not a fan. It's a long story.
-Created a AWS EC2 instance instead running the latest Kali (as of March 15) and installed WordPress over that (LAMP + .tar.gz). This is why all of the URL's are for localhost.
-Used SSH [Local Port Forwarding](https://help.ubuntu.com/community/SSH/OpenSSH/PortForwarding) for most of the exploits, but since Exploit 4 (Image Filename XSS) doesn't work on Windows (my workstation OS), used [X over SSH](http://people.csail.mit.edu/wentzlaf/faq/ssh_X.html) to remotely run firefox from the EC2 instance.
+- Virtualbox has ruined my networking setup on my workstation multiple times, so... I'm not a fan. It's a long story.
+- Created a AWS EC2 instance instead running the latest Kali (as of March 15) and installed WordPress over that (LAMP + .tar.gz). This is why all of the URL's are for localhost.
+- Used SSH [Local Port Forwarding](https://help.ubuntu.com/community/SSH/OpenSSH/PortForwarding) for most of the exploits, but since Exploit 4 (Image Filename XSS) doesn't work on Windows (my workstation OS), used [X over SSH](http://people.csail.mit.edu/wentzlaf/faq/ssh_X.html) to remotely run firefox from the EC2 instance.
 
 Also, Licecap is blocked for download by Windows Defender, and this *is* a security-related class, so...
+
 I'll take my chances with Windows 10 Game DVR + FFmpeg (plus, it's truly the better toolset anyways).
 
 ## License
