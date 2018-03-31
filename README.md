@@ -8,6 +8,7 @@ Time spent: **X** hours spent in total
 
 1. Unauthenticated Stored Cross-Site Scripting
   - [ ] Summary: 
+    - A comment longer than the SQL "text" field that stores it can lead to truncation and malformed HTML, opening up opportunities for XSS.
     - Vulnerability types: XSS
     - Tested in version: 4.2
     - Fixed in version: 4.2.1
@@ -30,6 +31,7 @@ Time spent: **X** hours spent in total
 
 2. Unauthenticated Genericons Cross-Site Scripting
   - [ ] Summary: 
+    - A leftover example file in one of the default wordpress includes (Genericons) is vulnerable to XSS.
     - Vulnerability types: XSS
     - Tested in version: 4.2
     - Fixed in version: 4.2.2
@@ -38,22 +40,29 @@ Time spent: **X** hours spent in total
     - Create a malicious link using the "filter" feature of the genericons example page with XSS embedded in it.
     - Example: 
     ```
-    http://wp-site/wp-content/themes/twentyfifteen/genericons/example.html#1<img/ src=1 onerror= alert(1)>
+    http://wpsite/wp-content/themes/twentyfifteen/genericons/example.html#1<img/ src=1 onerror= alert(1)>
     ```
   - [ ] Affected source code:
-    - Genericons example file (example.html) - Removed in WP 4.2.2
+    - [Link 1](https://core.trac.wordpress.org/browser/tags/4.2/src/wp-content/themes/twentyfifteen/genericons/example.html)
+    - Removed in WP 4.2.2
   - [ ] Reference:
     - https://wpvulndb.com/vulnerabilities/7979
 
-1. (Required) Vulnerability Name or ID
+3. Authenticated Shortcode Tags Cross-Site Scripting
   - [ ] Summary: 
-    - Vulnerability types:
-    - Tested in version:
-    - Fixed in version: 
+    - Shortcode tags can be mixed with HTML to lead to malformed HTML, bypassing KSES validation and opening up XSS. This can be combined with other vulnerabilities discovered by the same person to allow a read-only "Subscriber" user to escalate privilege and create persistent XSS.
+    - Vulnerability types: XSS
+    - Tested in version: 4.2
+    - Fixed in version: 4.2.5
   - [ ] GIF Walkthrough: 
   - [ ] Steps to recreate: 
+    - Get funky with quotes and put HTML inside of shortcodes
+    - Example:
+    ```
+    [caption width='1' caption='<a href="' ">]</a><a href="onClick='alert(1)'">
+    ```
   - [ ] Affected source code:
-    - [Link 1](https://core.trac.wordpress.org/browser/tags/version/src/source_file.php)
+    - [Link 1](https://github.com/WordPress/WordPress/commit/f72b21af23da6b6d54208e5c1d65ececdaa109c8)
 1. (Optional) Vulnerability Name or ID
   - [ ] Summary: 
     - Vulnerability types:
