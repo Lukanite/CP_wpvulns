@@ -14,7 +14,7 @@ Time spent: **X** hours spent in total
     - Fixed in version: 4.2.1
   - [ ] GIF Walkthrough: 
   - [ ] Steps to recreate: 
-    - Create an "<a>" tag longer than 64k, which upon truncation renders as malformed HTML. Browsers try to fix this which leads to interpretation of the onmouseover exploit.
+    - Create an "<a>" tag longer than 64k in a comment, which upon truncation renders as malformed HTML. Browsers try to fix this which leads to interpretation of the onmouseover exploit.
     - Sample exploit generator:
     ```python
     out = "<a title='x onmouseover=alert(unescape(/hello%20world/.source)) style=position:absolute;left:0;top:0;width:5000px;height:5000px  "
@@ -37,7 +37,7 @@ Time spent: **X** hours spent in total
     - Fixed in version: 4.2.2
   - [ ] GIF Walkthrough: 
   - [ ] Steps to recreate: 
-    - Create a malicious link using the "filter" feature of the genericons example page with XSS embedded in it.
+    - Create a malicious link using the "filter" feature of the genericons example page with XSS embedded in it for a post.
     - Example: 
     ```
     http://wpsite/wp-content/themes/twentyfifteen/genericons/example.html#1<img/ src=1 onerror= alert(1)>
@@ -48,7 +48,7 @@ Time spent: **X** hours spent in total
   - [ ] Reference:
     - https://wpvulndb.com/vulnerabilities/7979
 
-3. Authenticated Shortcode Tags Cross-Site Scripting
+3. Authenticated Shortcode Tags Cross-Site Scripting (CVE-2015-5714)
   - [ ] Summary: 
     - Shortcode tags can be mixed with HTML to lead to malformed HTML, bypassing KSES validation and opening up XSS. This can be combined with other vulnerabilities discovered by the same person to allow a read-only "Subscriber" user to escalate privilege and create persistent XSS.
     - Vulnerability types: XSS
@@ -56,50 +56,54 @@ Time spent: **X** hours spent in total
     - Fixed in version: 4.2.5
   - [ ] GIF Walkthrough: 
   - [ ] Steps to recreate: 
-    - Get funky with quotes and put HTML inside of shortcodes
+    - Get funky with quotes and put HTML inside of shortcodes. Put this in a post.
     - Example:
     ```
     [caption width='1' caption='<a href="' ">]</a><a href="onClick='alert(1)'">
     ```
   - [ ] Affected source code:
     - [Link 1](https://github.com/WordPress/WordPress/commit/f72b21af23da6b6d54208e5c1d65ececdaa109c8)
-1. (Optional) Vulnerability Name or ID
+  - [ ] Reference:
+    - https://blog.checkpoint.com/2015/09/15/finding-vulnerabilities-in-core-wordpress-a-bug-hunters-trilogy-part-iii-ultimatum/
+4. Authenticated Stored Cross-Site Scripting via Image Filename
   - [ ] Summary: 
-    - Vulnerability types:
-    - Tested in version:
-    - Fixed in version: 
-  - [ ] GIF Walkthrough: 
+    - An attacker can use a social engineering attack with a malicious filename to provide persistent XSS on an attachment page (since the title of the atttachment page is set to the image filename by default).
+    - Vulnerability types: XSS
+    - Tested in version: 4.2
+    - Fixed in version: 4.2.10
+  - [ ] GIF Walkthrough: (It's about a minute long, so strap in)
   - [ ] Steps to recreate: 
+    - Send an image with a malicious filename to the admin (victim)
+      - Example: `zorua<img src=rekt onerror=alert(1)>.jpg`
+    - Hope the admin is on a Mac or using Linux so that the filesystem supports the original filename
+    - Get the admin to create a post including the file (as an attachment page)
+    - Distribute the URL to the attachment page, which will execute your XSS
   - [ ] Affected source code:
-    - [Link 1](https://core.trac.wordpress.org/browser/tags/version/src/source_file.php)
-1. (Optional) Vulnerability Name or ID
-  - [ ] Summary: 
-    - Vulnerability types:
-    - Tested in version:
-    - Fixed in version: 
-  - [ ] GIF Walkthrough: 
-  - [ ] Steps to recreate: 
-  - [ ] Affected source code:
-    - [Link 1](https://core.trac.wordpress.org/browser/tags/version/src/source_file.php) 
+    - [Link 1](https://github.com/WordPress/WordPress/commit/c9e60dab176635d4bfaaf431c0ea891e4726d6e0)
+  - [ ] Reference:
+    - https://sumofpwn.nl/advisory/2016/persistent_cross_site_scripting_vulnerability_in_wordpress_due_to_unsafe_processing_of_file_names.html
 
 ## Assets
 
-List any additional assets, such as scripts or files
+All assets are listed in the descriptions for each vulnerability involved
 
 ## Resources
 
 - [WordPress Source Browser](https://core.trac.wordpress.org/browser/)
-- [WordPress Developer Reference](https://developer.wordpress.org/reference/)
+- [WordPress GitHub](https://github.com/WordPress/WordPress)
 
 GIFs created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-Describe any challenges encountered while doing the work
+Virtualbox has ruined my networking setup on my workstation multiple times, so... I'm not a fan.
+Created a AWS EC2 instance instead running the latest Kali (as of March 15) and installed WordPress over that (LAMP + .tar.gz). This is why all of the URL's are for localhost.
+Used SSH [Local Port Forwarding](https://help.ubuntu.com/community/SSH/OpenSSH/PortForwarding) for most of the exploits, but since Exploit 4 (Image Filename XSS) doesn't work on Windows (my workstation OS), used [X over SSH](http://people.csail.mit.edu/wentzlaf/faq/ssh_X.html) to remotely run firefox from the EC2 instance.
+
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright [2018] [Alan Zhang]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
