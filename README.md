@@ -6,7 +6,7 @@ Time spent: **10** hours spent in total
 
 ## Pentesting Report
 
-1. Unauthenticated Stored Cross-Site Scripting
+1. Unauthenticated Stored Cross-Site Scripting (CVE-2015-3440)
   - [ ] Summary: 
     - A comment longer than the SQL "text" field that stores it can lead to truncation and malformed HTML, opening up opportunities for XSS.
     - Vulnerability types: XSS
@@ -71,7 +71,7 @@ Time spent: **10** hours spent in total
     - https://github.com/WordPress/WordPress/commit/f72b21af23da6b6d54208e5c1d65ececdaa109c8
   - [ ] Reference:
     - https://blog.checkpoint.com/2015/09/15/finding-vulnerabilities-in-core-wordpress-a-bug-hunters-trilogy-part-iii-ultimatum/
-4. Authenticated Stored Cross-Site Scripting via Image Filename
+4. Authenticated Stored Cross-Site Scripting via Image Filename (CVE-2016-7168)
   - [ ] Summary: 
     - An attacker can use a social engineering attack with a malicious filename to provide persistent XSS on an attachment page (since the title of the atttachment page is set to the image filename by default).
     - Vulnerability types: XSS
@@ -113,7 +113,7 @@ I'll take my chances with Windows 10 Game DVR + FFmpeg (plus, it's truly the bet
 
 ## License
 
-    Copyright [2018] [Alan Zhang]
+    Copyright 2018 Alan Zhang
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
