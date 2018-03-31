@@ -6,7 +6,7 @@ Time spent: **X** hours spent in total
 
 ## Pentesting Report
 
-1. Unauthenticated Stored Cross-Site Scripting (XSS)
+1. Unauthenticated Stored Cross-Site Scripting
   - [ ] Summary: 
     - Vulnerability types: XSS
     - Tested in version: 4.2
@@ -24,13 +24,22 @@ Time spent: **X** hours spent in total
     ```
   - [ ] Affected source code:
     - None, this is an SQL field size limitation that causes this exploit to work due to truncation
-1. (Required) Vulnerability Name or ID
+  - [ ] Reference:
+    - https://wpvulndb.com/vulnerabilities/7945
+    - http://klikki.fi/adv/wordpress2.html
+
+2. Unauthenticated Genericons Cross-Site Scripting
   - [ ] Summary: 
-    - Vulnerability types:
-    - Tested in version:
-    - Fixed in version: 
+    - Vulnerability types: XSS
+    - Tested in version: 4.2
+    - Fixed in version: 4.2.2
   - [ ] GIF Walkthrough: 
   - [ ] Steps to recreate: 
+    - Create a malicious link using the "filter" feature of the genericons example page with XSS embedded in it.
+    - Example: 
+    ```
+    http://wp-site/wp-content/themes/twentyfifteen/genericons/example.html#1<img/ src=1 onerror= alert(1)>
+    ```
   - [ ] Affected source code:
     - [Link 1](https://core.trac.wordpress.org/browser/tags/version/src/source_file.php)
 1. (Required) Vulnerability Name or ID
