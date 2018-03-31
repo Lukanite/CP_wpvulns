@@ -1,6 +1,6 @@
 # Project 7 - WordPress Pentesting
 
-Time spent: **X** hours spent in total
+Time spent: **10** hours spent in total
 
 > Objective: Find, analyze, recreate, and document **five vulnerabilities** affecting an old version of WordPress
 
@@ -13,6 +13,7 @@ Time spent: **X** hours spent in total
     - Tested in version: 4.2
     - Fixed in version: 4.2.1
   - [ ] GIF Walkthrough: (1210KB, ~10s)
+    - <img src="/Lukanite/CP_wpvulns/raw/master/1.gif">
   - [ ] Steps to recreate: 
     - Create an "<a>" tag longer than 64k in a comment, which upon truncation renders as malformed HTML. Browsers try to fix this which leads to interpretation of the onmouseover exploit.
     - Sample exploit generator:
@@ -36,6 +37,7 @@ Time spent: **X** hours spent in total
     - Tested in version: 4.2
     - Fixed in version: 4.2.2
   - [ ] GIF Walkthrough: (164KB, ~6s)
+    - <img src="/Lukanite/CP_wpvulns/raw/master/2.gif">
   - [ ] Steps to recreate: 
     - Create a malicious link using the "filter" feature of the genericons example page with XSS embedded in it for a post.
     - Example: 
@@ -43,7 +45,7 @@ Time spent: **X** hours spent in total
     http://wpsite/wp-content/themes/twentyfifteen/genericons/example.html#1<img/ src=1 onerror= alert(1)>
     ```
   - [ ] Affected source code:
-    - [Link 1](https://core.trac.wordpress.org/browser/tags/4.2/src/wp-content/themes/twentyfifteen/genericons/example.html)
+    - https://core.trac.wordpress.org/browser/tags/4.2/src/wp-content/themes/twentyfifteen/genericons/example.html
     - Removed in WP 4.2.2
   - [ ] Reference:
     - https://wpvulndb.com/vulnerabilities/7979
@@ -55,6 +57,7 @@ Time spent: **X** hours spent in total
     - Tested in version: 4.2
     - Fixed in version: 4.2.5
   - [ ] GIF Walkthrough: (223KB, ~8s)
+    - <img src="/Lukanite/CP_wpvulns/raw/master/3.gif">
   - [ ] Steps to recreate: 
     - Get funky with quotes and put HTML inside of shortcodes. Put this in a post.
     - Example:
@@ -62,7 +65,7 @@ Time spent: **X** hours spent in total
     [caption width='1' caption='<a href="' ">]</a><a href="onClick='alert(1)'">
     ```
   - [ ] Affected source code:
-    - [Link 1](https://github.com/WordPress/WordPress/commit/f72b21af23da6b6d54208e5c1d65ececdaa109c8)
+    - https://github.com/WordPress/WordPress/commit/f72b21af23da6b6d54208e5c1d65ececdaa109c8
   - [ ] Reference:
     - https://blog.checkpoint.com/2015/09/15/finding-vulnerabilities-in-core-wordpress-a-bug-hunters-trilogy-part-iii-ultimatum/
 4. Authenticated Stored Cross-Site Scripting via Image Filename
@@ -72,6 +75,7 @@ Time spent: **X** hours spent in total
     - Tested in version: 4.2
     - Fixed in version: 4.2.10
   - [ ] GIF Walkthrough: (714KB, ~30s)
+    - <img src="/Lukanite/CP_wpvulns/raw/master/4.gif">
   - [ ] Steps to recreate: 
     - Send an image with a malicious filename to the admin (victim)
       - Example: `zorua<img src=rekt onerror=alert(1)>.jpg`
@@ -79,7 +83,7 @@ Time spent: **X** hours spent in total
     - Get the admin to create a post including the file (as an attachment page)
     - Distribute the URL to the attachment page, which will execute your XSS
   - [ ] Affected source code:
-    - [Link 1](https://github.com/WordPress/WordPress/commit/c9e60dab176635d4bfaaf431c0ea891e4726d6e0)
+    - https://github.com/WordPress/WordPress/commit/c9e60dab176635d4bfaaf431c0ea891e4726d6e0
   - [ ] Reference:
     - https://sumofpwn.nl/advisory/2016/persistent_cross_site_scripting_vulnerability_in_wordpress_due_to_unsafe_processing_of_file_names.html
 
