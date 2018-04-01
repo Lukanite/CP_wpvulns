@@ -108,7 +108,7 @@ GIFs created with [FFmpeg](http://ffmpeg.org/) and [Windows 10 Game DVR](https:/
 - Used SSH [Local Port Forwarding](https://help.ubuntu.com/community/SSH/OpenSSH/PortForwarding) for most of the exploits, but since Exploit 4 (Image Filename XSS) doesn't work on Windows (my workstation OS), used [X over SSH](http://people.csail.mit.edu/wentzlaf/faq/ssh_X.html) to remotely run firefox from the EC2 instance.
 
 Also, Licecap is blocked for download by Windows Defender, and this *is* a security-related class, so...
-
+<img src="https://github.com/Lukanite/CP_wpvulns/raw/master/licecap.png">
 I'll take my chances with Windows 10 Game DVR + FFmpeg (plus, it's truly the better toolset anyways).
 
 ## License
